@@ -531,9 +531,9 @@ nodeExporter:
     externalIPs: []
 
     hostPort: 9100
-    loadBalancerIP: ""
+    # loadBalancerIP: ""
     # loadBalancerSourceRanges: []
-     servicePort: 9100
+    # servicePort: 9100
     # type: ClusterIP
     type: NodePort
     nodePort: 30002
