@@ -270,7 +270,7 @@ alertmanager:
     loadBalancerSourceRanges: []
     servicePort: 80
     # nodePort: 30000
-    ##type: ClusterIP
+    # type: ClusterIP
     type: NodePort
     nodePort: 30000
 
@@ -407,7 +407,7 @@ kubeStateMetrics:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    ##type: ClusterIP
+    # type: ClusterIP
     type: NodePort
     nodePort: 30001
 
@@ -534,7 +534,7 @@ nodeExporter:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9100
-    ##type: ClusterIP
+    # type: ClusterIP
     type: NodePort
     nodePort: 30002
 
@@ -826,7 +826,7 @@ server:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    ##type: ClusterIP
+    # type: ClusterIP
     type: NodePort
     nodePort: 30001
 
@@ -959,7 +959,7 @@ pushgateway:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9091
-    ##type: ClusterIP
+    # type: ClusterIP
     type: NodePort
     nodePort: 30003
 
