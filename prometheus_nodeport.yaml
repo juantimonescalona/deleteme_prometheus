@@ -270,7 +270,9 @@ alertmanager:
     loadBalancerSourceRanges: []
     servicePort: 80
     # nodePort: 30000
-    type: ClusterIP
+    ##type: ClusterIP
+	type: NodePort
+	nodePort: 30000
 
 ## Monitors ConfigMap changes and POSTs to a URL
 ## Ref: https://github.com/jimmidyson/configmap-reload
@@ -405,7 +407,9 @@ kubeStateMetrics:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    type: ClusterIP
+    ##type: ClusterIP
+	type: NodePort
+	nodePort: 30001
 
 nodeExporter:
   ## If false, node-exporter will not be installed
@@ -530,7 +534,9 @@ nodeExporter:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9100
-    type: ClusterIP
+    ##type: ClusterIP
+	type: NodePort
+	nodePort: 30002
 
 server:
   ## Prometheus server container name
@@ -820,7 +826,9 @@ server:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    type: ClusterIP
+    ##type: ClusterIP
+	type: NodePort
+	nodePort: 30001
 
   ## Prometheus server pod termination grace period
   ##
@@ -951,7 +959,9 @@ pushgateway:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9091
-    type: ClusterIP
+    ##type: ClusterIP
+	type: NodePort
+	nodePort: 30003
 
   persistentVolume:
     ## If true, pushgateway will create/use a Persistent Volume Claim
