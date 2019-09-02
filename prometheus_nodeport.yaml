@@ -269,8 +269,8 @@ alertmanager:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    # nodePort: 30000
-    type: ClusterIP
+    nodePort: 30000
+    type: NodePort
 
 ## Monitors ConfigMap changes and POSTs to a URL
 ## Ref: https://github.com/jimmidyson/configmap-reload
@@ -820,7 +820,8 @@ server:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    type: ClusterIP
+    nodePort: 30001
+    type: NodePort
 
   ## Prometheus server pod termination grace period
   ##
