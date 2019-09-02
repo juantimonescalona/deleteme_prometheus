@@ -267,7 +267,7 @@ alertmanager:
     externalIPs: []
 
     loadBalancerIP: ""
-    # loadBalancerSourceRanges: []
+    loadBalancerSourceRanges: []
     servicePort: 80
     # nodePort: 30000
     # type: ClusterIP
@@ -532,7 +532,7 @@ nodeExporter:
 
     hostPort: 9100
     loadBalancerIP: ""
-    loadBalancerSourceRanges: []
+    # loadBalancerSourceRanges: []
      servicePort: 9100
     # type: ClusterIP
     type: NodePort
