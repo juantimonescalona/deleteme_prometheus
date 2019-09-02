@@ -270,9 +270,7 @@ alertmanager:
     loadBalancerSourceRanges: []
     servicePort: 80
     # nodePort: 30000
-    # type: ClusterIP
-    type: NodePort
-    nodePort: 30000
+    type: ClusterIP
 
 ## Monitors ConfigMap changes and POSTs to a URL
 ## Ref: https://github.com/jimmidyson/configmap-reload
@@ -397,7 +395,7 @@ kubeStateMetrics:
 
     # Exposed as a headless service:
     # https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
-    # clusterIP: None
+    clusterIP: None
 
     ## List of IP addresses at which the kube-state-metrics service is available
     ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
@@ -407,9 +405,7 @@ kubeStateMetrics:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    # type: ClusterIP
-    type: NodePort
-    nodePort: 30001
+    type: ClusterIP
 
 nodeExporter:
   ## If false, node-exporter will not be installed
@@ -523,15 +519,18 @@ nodeExporter:
 
     # Exposed as a headless service:
     # https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
-    # clusterIP: 'None'
+    clusterIP: None
 
     ## List of IP addresses at which the node-exporter service is available
     ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
     ##
     externalIPs: []
+
     hostPort: 9100
-    type: NodePort
-    nodePort: 30002
+    loadBalancerIP: ""
+    loadBalancerSourceRanges: []
+    servicePort: 9100
+    type: ClusterIP
 
 server:
   ## Prometheus server container name
@@ -821,9 +820,7 @@ server:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 80
-    # type: ClusterIP
-    type: NodePort
-    nodePort: 30001
+    type: ClusterIP
 
   ## Prometheus server pod termination grace period
   ##
@@ -954,9 +951,7 @@ pushgateway:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9091
-    # type: ClusterIP
-    type: NodePort
-    nodePort: 30003
+    type: ClusterIP
 
   persistentVolume:
     ## If true, pushgateway will create/use a Persistent Volume Claim
