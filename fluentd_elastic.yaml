@@ -4,7 +4,7 @@ image:
 ## It's recommended to change this to 'Always' if the image tag is 'latest'
 ## ref: http://kubernetes.io/docs/user-guide/images/#updating-images
   tag: v2.7.0
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   ## Optionally specify an array of imagePullSecrets.
   ## Secrets must be manually created in the namespace.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
@@ -47,8 +47,8 @@ resources: {}
 elasticsearch:
   auth:
     enabled: false
-    user: "yourUser"
-    password: "yourPass"
+    user: "admin"
+    password: "admin"
   bufferChunkLimit: "2M"
   bufferQueueLimit: 8
   host: "elasticsearch-client"
@@ -76,9 +76,9 @@ env:
 
 # If you want to add custom environment variables from secrets, use the secret list
 secret:
-# - name: ELASTICSEARCH_PASSWORD
-#   secret_name: elasticsearch
-#   secret_key: password
+ - name: ELASTICSEARCH_PASSWORD
+   secret_name: elasticsearch
+   secret_key: juan2019
 
 rbac:
   create: true
@@ -120,25 +120,26 @@ updateStrategy:
   type: RollingUpdate
 
 tolerations: {}
-  # - key: node-role.kubernetes.io/master
-  #   operator: Exists
-  #   effect: NoSchedule
+   - key: node-role.kubernetes.io/master
+     operator: Exists
+     effect: NoSchedule
 
 affinity: {}
-  # nodeAffinity:
-  #   requiredDuringSchedulingIgnoredDuringExecution:
-  #     nodeSelectorTerms:
-  #     - matchExpressions:
-  #       - key: node-role.kubernetes.io/master
-  #         operator: DoesNotExist
+   nodeAffinity:
+     requiredDuringSchedulingIgnoredDuringExecution:
+       nodeSelectorTerms:
+       - matchExpressions:
+         - key: node-role.kubernetes.io/master
+           operator: DoesNotExist
 
 nodeSelector: {}
 
 service: {}
-  # ports:
-  #   - name: "monitor-agent"
-  #     type: ClusterIP
-  #     port: 24231
+   ports:
+     - name: "monitor-agent"
+       type: NodePort
+       port: 24231
+       nodePort: 30005
 
 serviceMonitor:
   ## If true, a ServiceMonitor CRD is created for a prometheus operator
