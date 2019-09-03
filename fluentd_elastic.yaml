@@ -10,7 +10,7 @@ image:
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
   pullSecrets:
-    - myregistrkeysecretname
+    - elasticsearch
 
 ## If using AWS Elasticsearch, all requests to ES need to be signed regardless of whether
 ## one is using Cognito or not. By setting this to true, this chart will install a sidecar
