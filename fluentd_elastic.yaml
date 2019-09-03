@@ -75,10 +75,10 @@ env:
   # STUCK_THRESHOLD_SECONDS: 900
 
 # If you want to add custom environment variables from secrets, use the secret list
-secret:
- - name: ELASTICSEARCH_PASSWORD
-   secret_name: elasticsearch
-   secret_key: juan2019
+#secret:
+# - name: ELASTICSEARCH_PASSWORD
+#   secret_name: elasticsearch
+#   secret_key: juan2019
 
 rbac:
   create: true
