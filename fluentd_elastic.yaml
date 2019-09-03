@@ -119,12 +119,12 @@ podAnnotations: {}
 updateStrategy:
   type: RollingUpdate
 
-tolerations: {}
+tolerations:
    - key: node-role.kubernetes.io/master
      operator: Exists
      effect: NoSchedule
 
-affinity: {}
+affinity:
    nodeAffinity:
      requiredDuringSchedulingIgnoredDuringExecution:
        nodeSelectorTerms:
@@ -134,7 +134,7 @@ affinity: {}
 
 nodeSelector: {}
 
-service: {}
+service:
    ports:
      - name: "monitor-agent"
        type: NodePort
