@@ -109,9 +109,9 @@ cluster:
 client:
   name: client
   replicas: 2
-  serviceType: ClusterIP
+  serviceType: NodePort
   ## If coupled with serviceType = "NodePort", this will set a specific nodePort to the client HTTP port
-  # httpNodePort: 30920
+  httpNodePort: 30006
   loadBalancerIP: {}
   loadBalancerSourceRanges: {}
 ## (dict) If specified, apply these annotations to the client service
@@ -174,7 +174,7 @@ master:
   heapSize: "512m"
   # additionalJavaOpts: "-XX:MaxRAM=512m"
   persistence:
-    enabled: true
+    enabled: false
     accessMode: ReadWriteOnce
     name: data
     size: "4Gi"
