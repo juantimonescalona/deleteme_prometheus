@@ -9,8 +9,8 @@ image:
   ## Secrets must be manually created in the namespace.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
-  # pullSecrets:
-  #   - myRegistrKeySecretName
+  pullSecrets:
+    - myRegistrKeySecretName
 
 ## If using AWS Elasticsearch, all requests to ES need to be signed regardless of whether
 ## one is using Cognito or not. By setting this to true, this chart will install a sidecar
